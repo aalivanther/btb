@@ -1,0 +1,41 @@
+# Archivo .gitignore del monorepo de BTB.
+# Qué es: la lista de cosas que git debe IGNORAR (no subir al repositorio).
+# Por qué: hay archivos que se generan en cada máquina (binarios, dependencias, secretos)
+# y que NO deben viajar en el historial.
+# OJO: NO se ignoran "gen/" (código generado desde los .proto) ni los lockfiles
+# (go.sum, pnpm-lock.yaml); esos SÍ se suben para que el build sea reproducible.
+
+# --- Go (backend) ---
+# Carpeta temporal de "air" (hot reload) con el binario compilado.
+/backend/tmp/
+# Binario compilado del backend; se reconstruye al compilar.
+/backend/api
+# Cobertura de tests de Go.
+*.out
+
+# --- Node / Next.js (web) ---
+# Dependencias instaladas: se reinstalan con pnpm a partir del lockfile.
+node_modules/
+# Almacén local de pnpm: aparece si se corre pnpm en el host y es una caché de cientos de MB.
+.pnpm-store/
+# Tipos que Next.js genera en cada build.
+next-env.d.ts
+# Caché incremental del compilador de TypeScript.
+*.tsbuildinfo
+# Salidas de build de Next.js.
+/web/.next/
+/web/out/
+# Copia temporal que arma web/scripts/build-demo.mjs para compilar la demo estática.
+/web/.demo/
+# Demo estática exportada: se publica aparte (rama de GitHub Pages), no en el historial.
+/demo-site/
+
+# --- Secretos y entorno ---
+# Valores REALES de tokens y claves. Nunca se suben; solo .env.example.
+.env
+.env.*
+!.env.example
+
+# --- Sistema operativo ---
+# Archivo que crea macOS en cada carpeta.
+.DS_Store

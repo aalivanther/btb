@@ -1,0 +1,45 @@
+syntax = "proto3";
+
+package btb.games.v1;
+
+service DealsService {
+  rpc ListBestDeals(ListBestDealsRequest) returns (ListBestDealsResponse);
+
+  rpc FindGameDeals(FindGameDealsRequest) returns (FindGameDealsResponse);
+}
+
+message Deal {
+  string deal_id = 1;
+  string title = 2;
+  string store_id = 3;
+  string store_name = 4;
+  string sale_price = 5;
+  string normal_price = 6;
+  int32 savings_percent = 7;
+  string thumb_url = 8;
+  string buy_url = 9;
+  string steam_rating_text = 10;
+}
+
+message StoreInfo {
+  string store_id = 1;
+  string store_name = 2;
+  string icon_url = 3;
+}
+
+message ListBestDealsRequest {
+  int32 limit = 1;
+}
+
+message ListBestDealsResponse {
+  repeated Deal deals = 1;
+  repeated StoreInfo stores = 2;
+}
+
+message FindGameDealsRequest {
+  repeated string titles = 1;
+}
+
+message FindGameDealsResponse {
+  repeated Deal deals = 1;
+}

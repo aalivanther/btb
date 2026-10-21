@@ -1,0 +1,83 @@
+services:
+  api:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:8080:8080"
+    environment:
+      PORT: "8080"
+      LISTEN_HOST: "0.0.0.0"
+    healthcheck:
+      test: ["CMD", "/api", "healthcheck"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 10s
+    mem_limit: 512m
+    cpus: 1.0
+    develop:
+      watch:
+        - action: sync
+          path: ./backend
+          target: /app
+        - action: rebuild
+          path: ./backend/go.mod
+        - action: rebuild
+          path: ./backend/go.sum
+
+  web:
+    build:
+      context: ./web
+      dockerfile: Dockerfile
+    ports:
+      - "127.0.0.1:3000:3000"
+    user: "${BTB_UID:-1000}:${BTB_GID:-1000}"
+    environment:
+      API_BASE_URL: "http://api:8080"
+      BTB_ENV_FILE: "/btb-env/.env"
+    volumes:
+      - ./.env:/btb-env/.env
+    healthcheck:
+      test: ["CMD", "node", "-e", "fetch('http://127.0.0.1:3000').then(r=>process.exit(r.ok?0:1)).catch(()=>process.exit(1))"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 15s
+    mem_limit: 1g
+    cpus: 2.0
+    depends_on:
+      api:
+        condition: service_healthy
+    develop:
+      watch:
+        - action: sync
+          path: ./web
+          target: /app
+        - action: rebuild
+          path: ./web/package.json
+        - action: rebuild
+          path: ./web/pnpm-lock.yaml
+        - action: rebuild
+          path: ./web/pnpm-workspace.yaml
+
+  tools:
+    build:
+      context: .
+      dockerfile: tools/Dockerfile
+    working_dir: /work
+    profiles:
+      - tools
+    env_file:
+      - path: .env
+        required: false
+    volumes:
+      - .:/work
+      - btb-go-mod:/go/pkg/mod
+      - btb-go-build:/root/.cache/go-build
+      - btb-web-node-modules:/work/web/node_modules
+
+volumes:
+  btb-go-mod:
+  btb-go-build:
+  btb-web-node-modules:

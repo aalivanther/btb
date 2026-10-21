@@ -1,0 +1,134 @@
+syntax = "proto3";
+
+package btb.games.v1;
+
+service GameCatalogService {
+  rpc GetServiceInfo(GetServiceInfoRequest) returns (GetServiceInfoResponse);
+
+  rpc ListGames(ListGamesRequest) returns (ListGamesResponse);
+
+  rpc GetGame(GetGameRequest) returns (GetGameResponse);
+}
+
+enum GameKind {
+  GAME_KIND_UNSPECIFIED = 0;
+  GAME_KIND_GAME = 1;
+  GAME_KIND_DLC = 2;
+  GAME_KIND_EXPANSION = 3;
+}
+
+enum Platform {
+  PLATFORM_UNSPECIFIED = 0;
+  PLATFORM_PLAYSTATION = 1;
+  PLATFORM_XBOX = 2;
+  PLATFORM_NINTENDO = 3;
+  PLATFORM_PC = 4;
+}
+
+message GetServiceInfoRequest {}
+
+message GetServiceInfoResponse {
+  string service_name = 1;
+  string version = 2;
+}
+
+message ListGamesRequest {
+  int32 year = 1;
+  int32 month = 2;
+  repeated GameKind kinds = 3;
+  repeated Platform platforms = 4;
+}
+
+message ListGamesResponse {
+  repeated Game games = 1;
+}
+
+message GetGameRequest {
+  string id = 1;
+}
+
+message GetGameResponse {
+  Game game = 1;
+}
+
+message Game {
+  string id = 1;
+  GameKind kind = 2;
+  Platform platform = 3;
+  string title = 4;
+  string overview = 5;
+  string release_date = 6;
+  string cover_url = 7;
+  string hero_image_url = 8;
+  repeated string genres = 9;
+  string primary_language = 10;
+  repeated string audio_languages = 11;
+  string trailer_youtube_key = 12;
+  string complementary_youtube_key = 13;
+  repeated Image images = 14;
+  GameRatings ratings = 15;
+  GameAvailability availability = 16;
+  Collection franchise = 17;
+  repeated Credit developers = 18;
+  repeated Credit publishers = 19;
+  repeated Credit voice_cast = 20;
+
+  string age_rating = 21;
+  string playtime_estimate = 22;
+  bool free_to_play = 23;
+  bool early_access = 24;
+  bool multiplayer = 25;
+  int32 hypes = 26;
+  PcSpec pc_minimum = 27;
+  PcSpec pc_recommended = 28;
+}
+
+message PcSpec {
+  string os = 1;
+  string processor = 2;
+  string memory = 3;
+  string graphics = 4;
+  string storage = 5;
+}
+
+message Image {
+  string url = 1;
+  string label = 2;
+}
+
+message GameRatings {
+  double critic = 1;
+  string metacritic = 2;
+  string opencritic = 3;
+  string steam = 4;
+}
+
+message GameAvailability {
+  repeated string platforms = 1;
+  repeated string storefronts = 2;
+  repeated string subscription_services = 3;
+  repeated string dub_languages = 4;
+  repeated string sub_languages = 5;
+}
+
+message Collection {
+  string name = 1;
+  repeated CollectionItem items = 2;
+}
+
+message CollectionItem {
+  string title = 1;
+  string year = 2;
+  string poster_url = 3;
+  string overview = 4;
+  string backdrop_url = 5;
+  double rating = 6;
+  string extra = 7;
+  string game_id = 8;
+}
+
+message Credit {
+  string name = 1;
+  string role = 2;
+  string photo_url = 3;
+}
