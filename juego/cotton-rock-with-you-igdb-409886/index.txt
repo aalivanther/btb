@@ -1,0 +1,189 @@
+1:"$Sreact.fragment"
+f:"static/chunks/327-20f223e935c13077.js"
+10:"static/chunks/app/global-error-b8d876e076884b5e.js"
+11:I[4078,["327","$f","219","$10"],"default"]
+:HL["/btb/_next/static/media/444465df61edc5ff-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/596a03e895cca376-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/6e3b13862d2152fa-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/a2ce63cce92ef08d-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/dcc2f1532f204149-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/css/034c7bfa3dc3e377.css","style"]
+:HL["/btb/_next/static/css/fd626215c4d0dfa0.css","style"]
+2:Tea0,
+        /* Contenedor fijo que cubre toda la ventana, detrás del contenido. */
+        .organic-background {
+          position: fixed;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        /* Grupo de blobs: se desborda a propósito (inset negativo) y se difumina
+           fuerte para lograr nubes de color suaves. "screen" mezcla los colores
+           sumando luz, como en el cascarón v3. */
+        .organic-background .blob-field {
+          position: absolute;
+          inset: -20%;
+          filter: blur(80px) saturate(1.5);
+          opacity: 0.6;
+        }
+
+        /* Cada blob es un círculo de gradiente que se mueve en bucle, alternando
+           ida y vuelta, con la curva de movimiento de marca. */
+        .organic-background .blob {
+          position: absolute;
+          border-radius: 50%;
+          mix-blend-mode: screen;
+          animation: organic-drift 26s cubic-bezier(0.22, 0.61, 0.36, 1) infinite
+            alternate;
+        }
+
+        /* Posiciones, tamaños y color de cada uno de los cuatro blobs.
+           Los desfases (animation-delay negativos) hacen que no se muevan todos
+           a la vez, dando una sensación más natural. */
+        .organic-background .blob-1 {
+          width: 60vw;
+          height: 60vw;
+          left: -10%;
+          top: -15%;
+          background: radial-gradient(circle, #ff2e88, transparent 65%);
+        }
+        .organic-background .blob-2 {
+          width: 55vw;
+          height: 55vw;
+          right: -15%;
+          top: 5%;
+          background: radial-gradient(circle, #b14bff, transparent 65%);
+          animation-delay: -6s;
+        }
+        .organic-background .blob-3 {
+          width: 50vw;
+          height: 50vw;
+          left: 15%;
+          bottom: -25%;
+          background: radial-gradient(circle, #1fe0d6, transparent 65%);
+          animation-delay: -12s;
+        }
+        .organic-background .blob-4 {
+          width: 40vw;
+          height: 40vw;
+          right: 5%;
+          bottom: -10%;
+          background: radial-gradient(circle, #ff7a18, transparent 70%);
+          animation-delay: -18s;
+        }
+
+        /* Deriva: un desplazamiento y escalado mínimos para que los blobs
+           "respiren" muy despacio sin distraer. */
+        @keyframes organic-drift {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          100% {
+            transform: translate(4%, -3%) scale(1.12);
+          }
+        }
+
+        /* Capa de grano: el ruido SVG repetido, casi invisible (opacidad baja),
+           que añade textura sobre los blobs. */
+        .organic-background .grain {
+          position: absolute;
+          inset: 0;
+          opacity: 0.04;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Viñeta: oscurece progresivamente de arriba hacia los bordes para
+           enfocar la atención en el contenido. */
+        .organic-background .vignette {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            120% 90% at 50% 0%,
+            transparent 45%,
+            rgba(16, 11, 28, 0.72) 100%
+          );
+        }
+
+        /* Accesibilidad: si la persona pidió menos movimiento, congelamos los
+           blobs (sin animación). El fondo conserva su color y composición. */
+        @media (prefers-reduced-motion: reduce) {
+          .organic-background .blob {
+            animation: none;
+          }
+        }
+      9:X
+c:[["children",{"s":"__PAGE__","h":512,"d":{"r":"$Ld","p":false,"v":null}}]]
+a:[["children",{"s":{"n":"id","t":"d","k":"cotton-rock-with-you-igdb-409886","s":[]},"h":66048,"d":{"r":"$Lb","p":false,"v":"$9"},"c":"$Qc"}]]
+7:[["children",{"s":"juego","h":131584,"d":{"r":"$L8","p":false,"v":"$9"},"c":"$Qa"}]]
+5:[["children",{"s":"(public)","h":131588,"d":{"r":"$L6","p":false,"v":null},"c":"$Q7"}]]
+0:{"P":null,"c":["","juego","cotton-rock-with-you-igdb-409886",""],"q":"","i":false,"t":{"t":{"s":"","h":131608,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/btb/_next/static/css/034c7bfa3dc3e377.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","link","1",{"rel":"stylesheet","href":"/btb/_next/static/css/fd626215c4d0dfa0.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"es-MX","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var m=localStorage.getItem('btb:viewmode:v1');var mob=m==='movil'||((m===null||m==='auto')&&window.matchMedia('(max-width: 900px)').matches);if(m==='escritorio')mob=false;document.documentElement.dataset.view=mob?'mobile':'desktop';}catch(e){document.documentElement.dataset.view='desktop';}})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var t=localStorage.getItem('btb:theme:v1');if(t==='noir'||t==='vivo'){document.documentElement.dataset.theme=t;}}catch(e){}})();"}}]]}],["$","body",null,{"className":"__variable_8bd114 __variable_ff8ea1 __variable_69235d __variable_a81c4d __variable_6cb5ef","children":[["$","svg",null,{"aria-hidden":"true","focusable":"false","style":{"position":"absolute","width":0,"height":0,"overflow":"hidden"},"children":["$","defs",null,{"children":[["$","filter",null,{"id":"comic-posterize","colorInterpolationFilters":"sRGB","children":[["$","feComponentTransfer",null,{"children":[["$","feFuncR",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncG",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncB",null,{"type":"discrete","tableValues":"0.13 0.55 1"}]]}],["$","feColorMatrix",null,{"type":"saturate","values":"1.75"}]]}],["$","filter",null,{"id":"comic-ink","colorInterpolationFilters":"sRGB","children":[["$","feComponentTransfer",null,{"in":"SourceGraphic","result":"post","children":[["$","feFuncR",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncG",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncB",null,{"type":"discrete","tableValues":"0.13 0.55 1"}]]}],["$","feColorMatrix",null,{"in":"post","type":"saturate","values":"1.75","result":"cel"}],["$","feConvolveMatrix",null,{"in":"cel","order":"3","kernelMatrix":"1 1 1 1 -8 1 1 1 1","preserveAlpha":"true","result":"edge"}],["$","feColorMatrix",null,{"in":"edge","type":"matrix","values":"0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -2.4 -2.4 -2.4 0 1","result":"ink"}],["$","feMorphology",null,{"in":"ink","operator":"dilate","radius":"0.45","result":"inkfat"}],["$","feMerge",null,{"children":[["$","feMergeNode",null,{"in":"cel"}],["$","feMergeNode",null,{"in":"inkfat"}]]}]]}]]}]}],[["$","style",null,{"children":"$2"}],"$L3"],"$L4"]}]]}]]}],"p":false,"v":null},"c":"$Q5"},"h":{"r":"$Le","p":false,"v":null}},"m":"$undefined","G":["$11",[]],"S":true,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"hNCMEWAABvmuAFrxFsBoQ"}
+12:"static/chunks/868-51be6fe51854d294.js"
+13:"static/chunks/181-27d4bdb9acda9b36.js"
+14:"static/chunks/43-68e0089c1fa8804f.js"
+15:"static/chunks/990-437f02b615e93fbc.js"
+16:"static/chunks/807-dd637641acb53ede.js"
+17:"static/chunks/app/layout-5525beefb64f7f70.js"
+18:I[4536,["868","$12","181","$13","43","$14","990","$15","807","$16","177","$17"],"Providers"]
+19:I[8638,[],""]
+1a:I[2612,[],""]
+1b:"LoadingBoundaryProvider"
+1c:I[8638,[],"$1b"]
+25:I[9191,[],"OutletBoundary"]
+26:"$Sreact.suspense"
+28:"ViewportBoundary"
+29:I[9191,[],"$28"]
+2b:"MetadataBoundary"
+2c:I[9191,[],"$2b"]
+3:["$","div",null,{"className":"organic-background","aria-hidden":"true","children":[["$","div",null,{"className":"blob-field","children":[["$","div",null,{"className":"blob blob-1"}],["$","div",null,{"className":"blob blob-2"}],["$","div",null,{"className":"blob blob-3"}],["$","div",null,{"className":"blob blob-4"}]]}],["$","div",null,{"className":"grain"}],["$","div",null,{"className":"vignette"}]]}]
+4:["$","$L18",null,{"children":["$","div",null,{"className":"relative z-[1]","children":["$","$L19",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1a",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]
+6:["$","$L1c",null,{"loading":[["$","div","l",{"aria-busy":"true","role":"status","className":"font-ui","children":[["$","span",null,{"className":"sr-only","children":["Cargando ","Línea de tiempo","…"]}],["$","div",null,{"className":"flex items-center gap-4 px-4 py-3 sm:gap-6 sm:px-10","style":{"borderBottom":"1px solid var(--color-border-soft)"},"children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-9 w-[120px] rounded-sm","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex gap-2 sm:ml-3","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-8 w-[64px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-8 w-[84px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-8 w-[72px] rounded-full","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"className":"hidden flex-1 sm:block","aria-hidden":"true"}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block ml-auto h-9 w-[96px] rounded-full sm:ml-0","style":{"background":"var(--color-surface)"}}]]}],["$","div",null,{"className":"px-4 pt-12 pb-10 sm:px-10 sm:pt-16","children":["$","div",null,{"className":"max-w-[660px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-4 h-4 w-[180px] rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-4 h-12 w-[80%] rounded-base","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-5 h-4 w-[60%] rounded-sm","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex gap-3","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-11 w-[150px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-11 w-[120px] rounded-full","style":{"background":"var(--color-surface)"}}]]}]]}]}],["$","div",null,{"className":"px-4 pt-[10px] sm:px-10","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-7 w-[200px] rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mt-2 h-3 w-[320px] rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","div",null,{"className":"flex items-end gap-[22px] overflow-hidden px-4 pt-8 pb-12 sm:px-10","children":[["$","div","0",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}],["$","div","1",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],"$L1d"]}],"$L1e","$L1f","$L20","$L21","$L22"]}]]}],[],null],"children":"$L23"}]
+8:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1a",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+b:["$","$1","c",{"children":[null,["$","$L19",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L1a",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+d:["$","$1","c",{"children":["$L24",null,["$","$L25",null,{"children":["$","$26",null,{"name":"Next.MetadataOutlet","children":"$@27"}]}]]}]
+e:["$","$1","h",{"children":[null,["$","$L29",null,{"children":"$L2a"}],["$","$L2c",null,{"children":[["$","div",null,{"hidden":true,"children":["$","$26",null,{"name":"Next.Metadata","children":"$L2d"}]}],null]}],["$","meta",null,{"name":"next-size-adjust","content":""}]]}]
+2e:"static/chunks/429-d1cebde67b98f2b6.js"
+2f:"static/chunks/622-23e68a08b0125299.js"
+30:"static/chunks/app/(public)/layout-c1f6f5247f6751d9.js"
+31:I[5720,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"FilterProvider"]
+32:I[3476,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"ThemeProvider"]
+33:I[1547,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"AuthProvider"]
+34:"ViewportProvider"
+35:I[6519,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"$34"]
+36:I[3604,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"ProfileProvider"]
+37:"static/chunks/app/(public)/error-a209f37451be44e9.js"
+38:I[805,["327","$f","880","$37"],"default"]
+39:I[3201,["868","$12","181","$13","429","$2e","327","$f","622","$2f","816","$30"],"BottomNav"]
+9:C
+1d:["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]
+1e:["$","div","2",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}]
+1f:["$","div","3",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}]
+20:["$","div","4",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}]
+21:["$","div","5",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}]
+22:["$","div","6",{"className":"flex shrink-0 flex-col items-center","children":[["$","div",null,{"className":"mb-[14px] flex w-[184px] flex-col gap-[10px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-[66px] w-full rounded-sm","style":{"background":"var(--color-surface)"}}]]}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block mb-[9px] h-[9px] w-[9px] rounded-full","style":{"background":"var(--color-surface)"}}],["$","div",null,{"className":"flex flex-col items-center gap-2 pb-[30px]","children":[["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-4 w-6 rounded-sm","style":{"background":"var(--color-surface)"}}],["$","span",null,{"aria-hidden":"true","className":"tl-skeleton block h-3 w-8 rounded-sm","style":{"background":"var(--color-surface)"}}]]}]]}]
+23:["$","$1","c",{"children":[null,["$","$L31",null,{"children":["$","$L32",null,{"children":["$","$L33",null,{"children":["$","$L35",null,{"children":["$","$L36",null,{"children":[["$","$L19",null,{"parallelRouterKey":"children","error":"$38","errorStyles":[],"errorScripts":null,"template":["$","$L1a",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$4:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$4:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$4:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$4:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}],["$","$L39",null,{}],["$","footer",null,{"className":"tlx-footer font-ui","children":[["$","span",null,{"className":"tlx-footer-igdb","children":[["$","span",null,{"role":"img","aria-label":"Internet Game Database (IGDB)","className":"tlx-footer-logo font-label","children":"IGDB"}],["$","span",null,{"lang":"en","className":"tlx-footer-note","children":"This product uses the IGDB API but is not endorsed or certified by IGDB or Twitch."}]]}],["$","span",null,{"className":"tlx-footer-region font-label","children":["Demo · 12 oct 2026 · ","MX · es-MX"]}]]}]]}]}]}]}]}]]}]
+3a:"static/chunks/298-f0f9a4026cec1d4d.js"
+3b:"static/chunks/907-58d4791d46b22a31.js"
+3c:"static/chunks/139-15bafed1ab5fd256.js"
+3d:"static/chunks/app/(public)/juego/%5Bid%5D/page-be97467fdec0a416.js"
+3e:I[9502,["868","$12","181","$13","43","$14","429","$2e","298","$3a","990","$15","327","$f","622","$2f","907","$3b","139","$3c","72","$3d"],"Topbar"]
+3f:I[9091,["868","$12","181","$13","43","$14","429","$2e","298","$3a","990","$15","327","$f","622","$2f","907","$3b","139","$3c","72","$3d"],""]
+40:I[8139,["868","$12","181","$13","43","$14","429","$2e","298","$3a","990","$15","327","$f","622","$2f","907","$3b","139","$3c","72","$3d"],"ReleaseDetail"]
+41:T46a,A followup game to Cotton 2, Cotton Boomerang uses the same graphics, sound and enemies, but slightly different gameplay.
+
+Gone are the lifebars, now you have one-hit kills (similar to the very first episode).
+
+Gone are the extra lives, instead you have 3 chosen characters, tag-team style.
+
+Gone is the experience-based level system, leveling up now depends on bonus items during the game.
+
+Gone are the special, full-screen Magic attacks, instead you have an instant smart-bomb when you change into a different character in-game.
+
+Gone are the powerup-dependant magic attacks, now each character has his/her own magic attack by default.
+
+The characters are also equipped with secondary attacks to make their shooting style more distinctive from each other. And to top that, you have plenty of new moves, counterattacks, powerups, and key combinations to use.
+
+Whereas Cotton 2 was more of a tactical shooter (whenever that is applicable to the game) with its chain combo and life/experience system, Cotton Boomerang is an all-out shooter due to the added moves, different level layout, and generally faster and crazier gameplay.24:[["$","$L3e",null,{"genres":["Adventure","Arcade","Card & Board Game","Fighting","Hack and slash/Beat 'em up","Indie","Music","Platform","Point-and-click","Puzzle","Racing","Real Time Strategy (RTS)","Role-playing (RPG)","Shooter","Simulator","Sport","Strategy","Tactical","Turn-based strategy (TBS)","Visual Novel"],"today":{"year":2026,"month":10,"day":12,"label":"HOY · 12 OCT"}}],null,["$","main",null,{"className":"td-main font-ui relative z-[1] mx-auto flex min-h-screen max-w-[620px] flex-col gap-6 px-4 py-12 sm:px-6 sm:py-16","children":[["$","$L3f",null,{"href":"/","className":"font-mono inline-flex w-fit items-center gap-2 text-xs tracking-[0.08em] text-gold no-underline transition-colors hover:text-gold-bright","children":[["$","span",null,{"aria-hidden":"true","children":"‹"}],"Volver a lanzamientos"]}],["$","$L40",null,{"release":{"$typeName":"btb.games.v1.Game","id":"cotton-rock-with-you-igdb-409886","kind":1,"platform":3,"title":"Cotton Rock With You","overview":"","releaseDate":"2026-08-06","coverUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/cocdw5.jpg","heroImageUrl":"","genres":[],"primaryLanguage":"","audioLanguages":[],"trailerYoutubeKey":"CDWBZNSUmyE","complementaryYoutubeKey":"","images":[],"developers":[],"publishers":[{"$typeName":"btb.games.v1.Credit","name":"SUCCESS Corp.","role":"Distribuidora","photoUrl":""}],"voiceCast":[],"ageRating":"","playtimeEstimate":"","freeToPlay":false,"earlyAccess":false,"multiplayer":false,"hypes":0,"ratings":{"$typeName":"btb.games.v1.GameRatings","critic":0,"metacritic":"","opencritic":"","steam":""},"availability":{"$typeName":"btb.games.v1.GameAvailability","platforms":["Switch 2","PS5"],"storefronts":[],"subscriptionServices":[],"dubLanguages":[],"subLanguages":[]},"franchise":{"$typeName":"btb.games.v1.Collection","name":"Cotton","items":[{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton: Fantastic Night Dreams","year":"1991","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co52xf.jpg","overview":"Cotton: Fantastic Night Dreams is a scrolling shooter arcade game, released on Sega's Sega System 16B Arcade system board in 1989. It is the first in the Cotton series of videogames.\n\nIt was ported to both the Sharp X68000 and the NEC TurboGrafx-CD in 1993. The TurboGrafx-CD version was released on Super CD-ROM and features an enhanced redbook audio soundtrack and voice acting on the Japanese release. The game was later ported to Sony PlayStation under the title Cotton Original in 1999. The PlayStation release combines the enhanced digital CD-ROM soundtrack of TurboGrafx-CD release and the gameplay/graphics of the original Arcade version. A version was ported to the Neo Geo Pocket Color in 2000. Due to hardware limitations the Neo Geo Pocket Color features less detailed graphics and sound compared to previous versions, however it is still a faithful version of the original in terms of gameplay.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar388c.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton 100%","year":"1994","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co3zdc.jpg","overview":"Cotton 100% is a side scrolling shooter by Success and Datam Polystar, and likely sequel to the arcade game Cotton originally released in 1989.\n\nPreviously only available in Japan under the title of Märchen Adventure Cotton 100%, It received an aftermaket release in the West under the new title.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar506p.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Panorama Cotton","year":"1994","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co5gjo.jpg","overview":"Panorama Cotton is a pseudo-3D scrolling shooter reminiscent of Space Harrier, set in an anime-style fantasy world. Various levels scroll \"into the screen\", vertically, horizontally, or diagonally.\nIt is widely considered one of the best technical showcase of the Sega Mega Drive.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/scjbsd.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton 2: Magical Night Dreams","year":"1997","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co6iqd.jpg","overview":"Released first as an arcade game on Sega's ST-V hardware in 1997. Only months later, it received a virtually arcade-perfect console port on the Sega Saturn. Considered the true sequel to the first game in the series, Cotton 2 also marks the introduction of two new primary characters: Appli, a young princess, and her anthropomorphic hat, Needle. Cotton 2 sees a return to traditional horizontal scrolling in the series, but it also stands out among shoot 'em ups in general for its unique gameplay system. With a heavy incorporation of Newtonian physics, Cotton 2 ultimately mixes elements of 2D platformers with traditional shoot 'em up gameplay. The first release of Cotton 2 on the Sega Saturn also included a mini-calendar for 1998.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/km7qbdj2azscwh8bbdg5.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton Boomerang","year":"1998","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co99y7.jpg","overview":"$41","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/scm6nm.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Rainbow Cotton","year":"2000","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co526h.jpg","overview":"Rainbow Cotton is an Action game, developed and published by Success, which was released in Japan in 2000.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/scm7ev.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton Reboot!","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co2k9r.jpg","overview":"Suddenly one day, the waves of darkness messed up the prism of light and began to inhale the light of the world. Then the night went on, the morning light was lost, and people were living anxious lives in the dark. On the other hand, the gluttonous wizard Cotton, who is completely indifferent to such things, does not know the request from Fairy Silk. However, when I heard that I could get my favorite Willow when I got rid of the monsters, it was so glittering! Anyway, the journey to explore Cotton Willow begins.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar9df.jpg","rating":0,"extra":"Remake","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton Fantasy","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co4l3r.jpg","overview":"Cotton Fantasy (aka Cotton Rock ‘n’ Roll) retains the comical world of Cotton and Silk, the game features not only from the Cotton series but also the other shoot'em up such as Sanvein's \"Time\" System and Psyvariar's \"Buzz\" system.","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar1j6h.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton 2: Saturn Tribute","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co3z5g.jpg","overview":"Set in the Pumpkin Kingdom which has lost its national treasure—the \"Bluewater Willow,\" this brain-stimulating action-shooter follows Cotton, a witch with the biggest appetite in the universe, and Appli, the most tomboyish girl in the royal family. This is the fourth installment in the fantasy shooting game series featuring Cotton, one of SUCCESS's most popular characters. This masterpiece of the past is given new life using the specially-developed \"Zebra Engine.\" The new features included such as game rewind, slow mode, and quick save greatly improve ease of play. Online rankings have also been added!","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar159r.jpg","rating":0,"extra":"Port","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton Boomerang: Saturn Tribute","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co3z5f.jpg","overview":"There are team battles this time! Take full advantage of all the amplified action and push forward! Set in the Pumpkin Kingdom which has lost its national treasure—the \"Bluewater Willow,\" this brain-stimulating action-shooter follows Cotton, a witch with the biggest appetite in the universe, and Appli, the most tomboyish girl in the royal family. This is the fifth installment in the fantasy shooting game series featuring Cotton, one of SUCCESS's most popular characters. This masterpiece of the past is given new life using the specially-developed \"Zebra Engine.\" The new features included such as game rewind, slow mode, and quick save greatly improve ease of play. Online rankings have also been added!","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar159q.jpg","rating":0,"extra":"Port","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton Guardian Force: Saturn Tribute","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co3gny.jpg","overview":"Shoot 'em up collection here we go!\n\nCotton Guardian Force Saturn Tribute is a collection of three Cotton games that were released back in the '90s for Sega Saturn. Players all around the globe can experience and enjoy this collection because of its English language support!\n\nAre you ready to meet all your enemies and take them down into pieces in this shoot 'em up collection?","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/scbtuv.jpg","rating":0,"extra":"","gameId":""},{"$typeName":"btb.games.v1.CollectionItem","title":"Cotton 100%","year":"2021","posterUrl":"https://images.igdb.com/igdb/image/upload/t_cover_big/co5gib.jpg","overview":"Cotton 100% was released in 1994 and is based on the original Cotton: Fantastic Night Dreams. It offers a stunning and fresh new look with the more vibrant color palette of the Super Famicom.\n\nExperience the beautiful and authentic Cute 'em Up action from the 90s in all its glory and charm!","backdropUrl":"https://images.igdb.com/igdb/image/upload/t_1080p/ar1byg.jpg","rating":0,"extra":"Port","gameId":""}]}},"related":[],"upcoming":false,"today":"$24:0:props:today","franchiseGames":[],"deal":"$undefined","extraVideos":[]}]]}]]
+2a:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1, viewport-fit=cover"}],["$","meta","2",{"name":"theme-color","content":"#0e0b18"}]]
+27:null
+2d:[["$","title","0",{"children":"Cotton Rock With You"}],["$","meta","1",{"name":"description","content":"BTB — Be The Boss: agregador de lanzamientos de videojuegos de PlayStation, Xbox, Nintendo y PC, con una línea de tiempo navegable de lo que viene."}],["$","meta","2",{"property":"og:title","content":"Cotton Rock With You"}],["$","meta","3",{"property":"og:description","content":"Descubre este lanzamiento en «Be The Boss», tu calendario de videojuegos."}],["$","meta","4",{"property":"og:image","content":"https://images.igdb.com/igdb/image/upload/t_cover_big/cocdw5.jpg"}],["$","meta","5",{"property":"og:type","content":"website"}],["$","meta","6",{"name":"twitter:card","content":"summary_large_image"}],["$","meta","7",{"name":"twitter:title","content":"Cotton Rock With You"}],["$","meta","8",{"name":"twitter:description","content":"Descubre este lanzamiento en «Be The Boss», tu calendario de videojuegos."}],["$","meta","9",{"name":"twitter:image","content":"https://images.igdb.com/igdb/image/upload/t_cover_big/cocdw5.jpg"}]]

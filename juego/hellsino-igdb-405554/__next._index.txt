@@ -1,0 +1,124 @@
+1:"$Sreact.fragment"
+:HL["/btb/_next/static/css/034c7bfa3dc3e377.css","style"]
+:HL["/btb/_next/static/css/fd626215c4d0dfa0.css","style"]
+2:Tea0,
+        /* Contenedor fijo que cubre toda la ventana, detrás del contenido. */
+        .organic-background {
+          position: fixed;
+          inset: 0;
+          z-index: 0;
+          pointer-events: none;
+        }
+
+        /* Grupo de blobs: se desborda a propósito (inset negativo) y se difumina
+           fuerte para lograr nubes de color suaves. "screen" mezcla los colores
+           sumando luz, como en el cascarón v3. */
+        .organic-background .blob-field {
+          position: absolute;
+          inset: -20%;
+          filter: blur(80px) saturate(1.5);
+          opacity: 0.6;
+        }
+
+        /* Cada blob es un círculo de gradiente que se mueve en bucle, alternando
+           ida y vuelta, con la curva de movimiento de marca. */
+        .organic-background .blob {
+          position: absolute;
+          border-radius: 50%;
+          mix-blend-mode: screen;
+          animation: organic-drift 26s cubic-bezier(0.22, 0.61, 0.36, 1) infinite
+            alternate;
+        }
+
+        /* Posiciones, tamaños y color de cada uno de los cuatro blobs.
+           Los desfases (animation-delay negativos) hacen que no se muevan todos
+           a la vez, dando una sensación más natural. */
+        .organic-background .blob-1 {
+          width: 60vw;
+          height: 60vw;
+          left: -10%;
+          top: -15%;
+          background: radial-gradient(circle, #ff2e88, transparent 65%);
+        }
+        .organic-background .blob-2 {
+          width: 55vw;
+          height: 55vw;
+          right: -15%;
+          top: 5%;
+          background: radial-gradient(circle, #b14bff, transparent 65%);
+          animation-delay: -6s;
+        }
+        .organic-background .blob-3 {
+          width: 50vw;
+          height: 50vw;
+          left: 15%;
+          bottom: -25%;
+          background: radial-gradient(circle, #1fe0d6, transparent 65%);
+          animation-delay: -12s;
+        }
+        .organic-background .blob-4 {
+          width: 40vw;
+          height: 40vw;
+          right: 5%;
+          bottom: -10%;
+          background: radial-gradient(circle, #ff7a18, transparent 70%);
+          animation-delay: -18s;
+        }
+
+        /* Deriva: un desplazamiento y escalado mínimos para que los blobs
+           "respiren" muy despacio sin distraer. */
+        @keyframes organic-drift {
+          0% {
+            transform: translate(0, 0) scale(1);
+          }
+          100% {
+            transform: translate(4%, -3%) scale(1.12);
+          }
+        }
+
+        /* Capa de grano: el ruido SVG repetido, casi invisible (opacidad baja),
+           que añade textura sobre los blobs. */
+        .organic-background .grain {
+          position: absolute;
+          inset: 0;
+          opacity: 0.04;
+          background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+        }
+
+        /* Viñeta: oscurece progresivamente de arriba hacia los bordes para
+           enfocar la atención en el contenido. */
+        .organic-background .vignette {
+          position: absolute;
+          inset: 0;
+          background: radial-gradient(
+            120% 90% at 50% 0%,
+            transparent 45%,
+            rgba(16, 11, 28, 0.72) 100%
+          );
+        }
+
+        /* Accesibilidad: si la persona pidió menos movimiento, congelamos los
+           blobs (sin animación). El fondo conserva su color y composición. */
+        @media (prefers-reduced-motion: reduce) {
+          .organic-background .blob {
+            animation: none;
+          }
+        }
+      6:X
+0:{"t":{"t":{"s":"","h":131096,"d":{"r":["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/btb/_next/static/css/034c7bfa3dc3e377.css","precedence":"next"}],["$","link","1",{"rel":"stylesheet","href":"/btb/_next/static/css/fd626215c4d0dfa0.css","precedence":"next"}]],["$","html",null,{"lang":"es-MX","suppressHydrationWarning":true,"children":[["$","head",null,{"children":[["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var m=localStorage.getItem('btb:viewmode:v1');var mob=m==='movil'||((m===null||m==='auto')&&window.matchMedia('(max-width: 900px)').matches);if(m==='escritorio')mob=false;document.documentElement.dataset.view=mob?'mobile':'desktop';}catch(e){document.documentElement.dataset.view='desktop';}})();"}}],["$","script",null,{"dangerouslySetInnerHTML":{"__html":"(function(){try{var t=localStorage.getItem('btb:theme:v1');if(t==='noir'||t==='vivo'){document.documentElement.dataset.theme=t;}}catch(e){}})();"}}]]}],["$","body",null,{"className":"__variable_8bd114 __variable_ff8ea1 __variable_69235d __variable_a81c4d __variable_6cb5ef","children":[["$","svg",null,{"aria-hidden":"true","focusable":"false","style":{"position":"absolute","width":0,"height":0,"overflow":"hidden"},"children":["$","defs",null,{"children":[["$","filter",null,{"id":"comic-posterize","colorInterpolationFilters":"sRGB","children":[["$","feComponentTransfer",null,{"children":[["$","feFuncR",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncG",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncB",null,{"type":"discrete","tableValues":"0.13 0.55 1"}]]}],["$","feColorMatrix",null,{"type":"saturate","values":"1.75"}]]}],["$","filter",null,{"id":"comic-ink","colorInterpolationFilters":"sRGB","children":[["$","feComponentTransfer",null,{"in":"SourceGraphic","result":"post","children":[["$","feFuncR",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncG",null,{"type":"discrete","tableValues":"0.13 0.55 1"}],["$","feFuncB",null,{"type":"discrete","tableValues":"0.13 0.55 1"}]]}],["$","feColorMatrix",null,{"in":"post","type":"saturate","values":"1.75","result":"cel"}],["$","feConvolveMatrix",null,{"in":"cel","order":"3","kernelMatrix":"1 1 1 1 -8 1 1 1 1","preserveAlpha":"true","result":"edge"}],["$","feColorMatrix",null,{"in":"edge","type":"matrix","values":"0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  -2.4 -2.4 -2.4 0 1","result":"ink"}],["$","feMorphology",null,{"in":"ink","operator":"dilate","radius":"0.45","result":"inkfat"}],["$","feMerge",null,{"children":[["$","feMergeNode",null,{"in":"cel"}],["$","feMergeNode",null,{"in":"inkfat"}]]}]]}]]}]}],[["$","style",null,{"children":"$2"}],"$L3"],"$L4"]}]]}]]}],"p":"$@5","v":null,"s":"$6"}}},"a":"$@7","u":"$@8","b":"hNCMEWAABvmuAFrxFsBoQ"}
+9:"static/chunks/868-51be6fe51854d294.js"
+a:"static/chunks/181-27d4bdb9acda9b36.js"
+b:"static/chunks/43-68e0089c1fa8804f.js"
+c:"static/chunks/990-437f02b615e93fbc.js"
+d:"static/chunks/807-dd637641acb53ede.js"
+e:"static/chunks/app/layout-5525beefb64f7f70.js"
+f:I[4536,["868","$9","181","$a","43","$b","990","$c","807","$d","177","$e"],"Providers"]
+10:I[8638,[],""]
+11:I[2612,[],""]
+3:["$","div",null,{"className":"organic-background","aria-hidden":"true","children":[["$","div",null,{"className":"blob-field","children":[["$","div",null,{"className":"blob blob-1"}],["$","div",null,{"className":"blob blob-2"}],["$","div",null,{"className":"blob blob-3"}],["$","div",null,{"className":"blob blob-4"}]]}],["$","div",null,{"className":"grain"}],["$","div",null,{"className":"vignette"}]]}]
+4:["$","$Lf",null,{"children":["$","div",null,{"className":"relative z-[1]","children":["$","$L10",null,{"parallelRouterKey":"children","template":["$","$L11",null,{}],"notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]]}]}]}]
+6:300
+8:true
+6:C
+7:0
+5:"$undefined"

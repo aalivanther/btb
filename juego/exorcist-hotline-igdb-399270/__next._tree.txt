@@ -1,0 +1,12 @@
+:HL["/btb/_next/static/media/444465df61edc5ff-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/596a03e895cca376-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/6e3b13862d2152fa-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/a2ce63cce92ef08d-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/media/dcc2f1532f204149-s.p.ttf","font",{"crossOrigin":"","type":"font/ttf"}]
+:HL["/btb/_next/static/css/034c7bfa3dc3e377.css","style"]
+:HL["/btb/_next/static/css/fd626215c4d0dfa0.css","style"]
+4:[["children",{"s":"__PAGE__","h":160}]]
+3:[["children",{"s":{"n":"id","t":"d","k":"exorcist-hotline-igdb-399270","s":[]},"h":65632,"c":"$Q4"}]]
+2:[["children",{"s":"juego","h":131136,"c":"$Q3"}]]
+1:[["children",{"s":"(public)","h":131076,"c":"$Q2"}]]
+0:{"b":"hNCMEWAABvmuAFrxFsBoQ","t":{"t":{"s":"","h":131096,"c":"$Q1"}}}
