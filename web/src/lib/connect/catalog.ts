@@ -1,3 +1,5 @@
+import "server-only";
+
 import { cache } from "react";
 
 import { Code, ConnectError, createClient } from "@connectrpc/connect";

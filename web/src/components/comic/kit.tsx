@@ -1,4 +1,4 @@
-import type { CSSProperties, JSX, ReactNode } from "react";
+import type { CSSProperties, JSX, ReactNode, Ref } from "react";
 
 import { coverStyleFor } from "@/lib/timeline";
 import type { Tier } from "@/lib/rarity";
@@ -9,16 +9,30 @@ export function HalftoneImage({
   seed,
   intensity = "strong",
   className = "",
+  deferImage = false,
+  ref,
 }: {
   url: string;
   seed: number;
   intensity?: HalftoneIntensity;
   className?: string;
+  // deferImage deja el mismo marco (fondo oscuro y filtro) que se ve mientras la foto carga,
+  // pero sin pedirla todavía; quien lo usa lo apaga cuando la imagen se acerca a la vista.
+  deferImage?: boolean;
+  ref?: Ref<HTMLSpanElement>;
 }): JSX.Element {
   const style = coverStyleFor(url, seed) as CSSProperties;
+  if (deferImage && url) {
+    delete style.backgroundImage;
+  }
   const photoClass = url ? (intensity === "soft" ? " is-photo is-soft" : " is-photo") : "";
   return (
-    <span aria-hidden="true" className={`c-htimg${photoClass} ${className}`.trim()} style={style}>
+    <span
+      ref={ref}
+      aria-hidden="true"
+      className={`c-htimg${photoClass} ${className}`.trim()}
+      style={style}
+    >
       <span className="c-htimg-dots" />
     </span>
   );

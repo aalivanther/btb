@@ -21,7 +21,8 @@ import {
 } from "@/lib/timeline";
 import { useProfile } from "@/lib/profile-context";
 import { ui } from "@/lib/i18n";
-import { GameKind, type Game } from "@/lib/connect/catalog";
+import type { Game } from "@/lib/connect/catalog";
+import { GameKind } from "@/gen/btb/games/v1/games_pb";
 import { type Deal } from "@/gen/btb/games/v1/deals_pb";
 import { titlesMatch } from "@/lib/deal-match";
 import {

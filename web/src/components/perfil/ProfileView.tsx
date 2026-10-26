@@ -21,7 +21,7 @@ import {
 import { buildRadarHits, type RadarHit } from "@/lib/wishlist-alerts";
 import { buildICS, countICSEvents } from "@/lib/ics";
 import { LANE_META, LANE_ORDER, type TodayMarker } from "@/lib/timeline";
-import { type Game } from "@/lib/connect/catalog";
+import type { ProfileGame } from "@/lib/profile-catalog";
 import { type Tier } from "@/lib/rarity";
 import { useVideoLang } from "@/lib/use-video-lang";
 import { type VideoLang } from "@/lib/video-lang";
@@ -83,7 +83,7 @@ const ALIAS_MAX_LENGTH = 24;
 const BIO_MAX_LENGTH = 120;
 
 type ProfileViewProps = {
-  catalog: Game[];
+  catalog: ProfileGame[];
   today: TodayMarker;
   genres: string[];
 };

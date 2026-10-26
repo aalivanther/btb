@@ -16,7 +16,7 @@ import {
   type Connection,
   type TodayMarker,
 } from "@/lib/timeline";
-import { type Game } from "@/lib/connect/catalog";
+import type { Game } from "@/lib/connect/catalog";
 import { DealsService, type Deal } from "@/gen/btb/games/v1/deals_pb";
 import { matchDealToTitle } from "@/lib/deal-match";
 

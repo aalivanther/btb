@@ -1,4 +1,4 @@
-import type { Game } from "@/lib/connect/catalog";
+import type { ProfileGame } from "@/lib/profile-catalog";
 import type { Profile, WishItem } from "@/lib/profile-context";
 import { deriveRarity, deriveRarityFromHypes, type Tier } from "@/lib/rarity";
 import { daysUntilRelease } from "@/lib/wishlist-alerts";
@@ -6,7 +6,7 @@ import { laneKeyFromEnum, type LaneKey, type TodayMarker } from "@/lib/timeline"
 
 export type WishEntry = {
   item: WishItem;
-  game: Game | null;
+  game: ProfileGame | null;
   tier: Tier;
   daysUntil: number | null;
   released: boolean;
@@ -19,10 +19,10 @@ export type WishBoard = {
 
 export function buildWishBoard(
   wishlist: WishItem[],
-  catalog: Game[],
+  catalog: ProfileGame[],
   today: TodayMarker,
 ): WishBoard {
-  const gameById = new Map<string, Game>();
+  const gameById = new Map<string, ProfileGame>();
   for (const game of catalog) {
     gameById.set(game.id, game);
   }

@@ -6,35 +6,35 @@ import Background from "@/components/Background";
 import { Providers } from "@/components/Providers";
 
 const bangers = localFont({
-  src: "./fonts/bangers.ttf",
+  src: "./fonts/bangers.woff2",
   weight: "400",
   variable: "--font-bangers",
   display: "swap",
 });
 
 const bungee = localFont({
-  src: "./fonts/bungee.ttf",
+  src: "./fonts/bungee.woff2",
   weight: "400",
   variable: "--font-bungee",
   display: "swap",
 });
 
 const spaceGrotesk = localFont({
-  src: "./fonts/spacegrotesk.ttf",
+  src: "./fonts/spacegrotesk.woff2",
   weight: "300 700",
   variable: "--font-grotesk",
   display: "swap",
 });
 
 const shantellSans = localFont({
-  src: "./fonts/shantellsans.ttf",
+  src: "./fonts/shantellsans.woff2",
   weight: "300 800",
   variable: "--font-comic",
   display: "swap",
 });
 
 const geistMono = localFont({
-  src: "./fonts/geistmono.ttf",
+  src: "./fonts/geistmono.woff2",
   weight: "100 900",
   variable: "--font-geist-mono",
   display: "swap",

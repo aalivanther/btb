@@ -4,7 +4,7 @@ import { useEffect, useState, type CSSProperties, type JSX } from "react";
 
 import { coverStyleFor } from "@/lib/timeline";
 import { useFilter } from "@/lib/timeline-context";
-import { type Game } from "@/lib/connect/catalog";
+import type { Game } from "@/lib/connect/catalog";
 
 function overrideStyle(backdrop: { url: string; seed: number }): CSSProperties {
   const style = { ...coverStyleFor(backdrop.url, backdrop.seed) };
@@ -13,6 +13,10 @@ function overrideStyle(backdrop: { url: string; seed: number }): CSSProperties {
 }
 
 const ROTATION_INTERVAL_MS = 6000;
+
+// Capas con foto asignada al montar: la visible y la siguiente. Cada giro suma una más, así cada
+// fondo se pide un ciclo completo (6 s) antes de mostrarse y no se bajan los seis de golpe.
+const INITIAL_PRIMED_LAYERS = 2;
 
 type GlobalBackgroundProps = {
   games: Game[];
@@ -23,6 +27,7 @@ type GlobalBackgroundProps = {
 export function GlobalBackground({ games, seeds }: GlobalBackgroundProps): JSX.Element | null {
   const { activeBackdrop } = useFilter();
   const [activeIndex, setActiveIndex] = useState(0);
+  const [primedLayers, setPrimedLayers] = useState(INITIAL_PRIMED_LAYERS);
 
   useEffect(() => {
     if (games.length <= 1) {
@@ -30,6 +35,7 @@ export function GlobalBackground({ games, seeds }: GlobalBackgroundProps): JSX.E
     }
     const intervalId = window.setInterval(() => {
       setActiveIndex((previousIndex) => (previousIndex + 1) % games.length);
+      setPrimedLayers((count) => Math.min(games.length, count + 1));
     }, ROTATION_INTERVAL_MS);
     return () => {
       window.clearInterval(intervalId);
@@ -46,6 +52,9 @@ export function GlobalBackground({ games, seeds }: GlobalBackgroundProps): JSX.E
         const isActive = index === activeIndex;
         const coverStyle = { ...coverStyleFor(game.heroImageUrl, seeds[index] ?? index) };
         delete coverStyle.opacity;
+        if (index >= primedLayers) {
+          delete coverStyle.backgroundImage;
+        }
         return (
           <div
             key={game.id}

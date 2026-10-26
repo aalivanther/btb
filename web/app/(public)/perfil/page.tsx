@@ -5,6 +5,7 @@ import { ProfileView } from "@/components/perfil/ProfileView";
 import { CATALOG_WINDOW } from "@/lib/catalog-window";
 import { collectGenres, resolveDemoToday } from "@/lib/timeline";
 import { listGamesSafe, type Game } from "@/lib/connect/catalog";
+import { toProfileGame } from "@/lib/profile-catalog";
 import { ui } from "@/lib/i18n";
 
 export const metadata: Metadata = {
@@ -27,7 +28,7 @@ export default async function PerfilPage() {
     <>
       <Topbar genres={availableGenres} today={today} />
       <main className="pp-main font-ui">
-        <ProfileView catalog={catalog} today={today} genres={availableGenres} />
+        <ProfileView catalog={catalog.map(toProfileGame)} today={today} genres={availableGenres} />
       </main>
     </>
   );

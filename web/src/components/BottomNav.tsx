@@ -30,7 +30,7 @@ export function BottomNav(): JSX.Element | null {
 
   return (
     <nav className="bn-root" aria-label={ui.bottomNav.label}>
-      <Link href="/" className={`bn-item${onHome ? " is-active" : ""}`} aria-current={onHome ? "page" : undefined}>
+      <Link href="/" prefetch={false} className={`bn-item${onHome ? " is-active" : ""}`} aria-current={onHome ? "page" : undefined}>
         <svg className="bn-icon" viewBox="0 0 24 24" aria-hidden="true">
           <rect x="3.5" y="5" width="17" height="15" rx="2.5" fill="none" stroke="currentColor" strokeWidth="1.8" />
           <path d="M3.5 9h17M8 3.5v3M16 3.5v3" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" />
@@ -56,6 +56,7 @@ export function BottomNav(): JSX.Element | null {
 
       <Link
         href="/perfil"
+        prefetch={false}
         className={`bn-item${onProfile ? " is-active" : ""}`}
         aria-current={onProfile ? "page" : undefined}
       >
