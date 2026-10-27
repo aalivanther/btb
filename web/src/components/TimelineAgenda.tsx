@@ -7,7 +7,8 @@ import { useFilter } from "@/lib/timeline-context";
 import { useProfile } from "@/lib/profile-context";
 import { deriveRarity, deriveRarityFromHypes } from "@/lib/rarity";
 import { MonthMap } from "@/components/MonthMap";
-import { HalftoneImage, PowBurst, RarityFrame, type PowTone } from "@/components/comic/kit";
+import { PowBurst, RarityFrame, type PowTone } from "@/components/comic/kit";
+import { LazyHalftoneImage } from "@/components/LazyHalftoneCover";
 import type { Game } from "@/lib/connect/catalog";
 import {
   LANE_META,
@@ -187,7 +188,12 @@ function AgendaCard({
       )}
     >
       <RarityFrame tier={tier} className="ag-card-cover">
-        <HalftoneImage url={topGame?.coverUrl ?? ""} seed={seed} intensity="soft" className="ag-card-art" />
+        <LazyHalftoneImage
+          url={topGame?.coverUrl ?? ""}
+          seed={seed}
+          intensity="soft"
+          className="ag-card-art"
+        />
       </RarityFrame>
       <span className="ag-card-body">
         <span className="ag-card-title font-display">{topGame?.title ?? meta.label}</span>

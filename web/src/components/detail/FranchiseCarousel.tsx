@@ -13,6 +13,7 @@ import { RarityFrame } from "@/components/detail/RarityFrame";
 import { POW_BY_TIER, franchiseSearchUrl } from "@/components/detail/helpers";
 import { deriveRarity } from "@/lib/rarity";
 import { useModalA11y } from "@/lib/use-modal-a11y";
+import { useNearViewport } from "@/lib/use-near-viewport";
 import { ui } from "@/lib/i18n";
 import type { Game } from "@/lib/connect/catalog";
 import type { CollectionItem } from "@/gen/btb/games/v1/games_pb";
@@ -35,6 +36,7 @@ export function FranchiseCarousel({
   const dragRef = useRef({ active: false, moved: false, lastX: 0, velocity: 0 });
   const momentumRef = useRef<number | null>(null);
   const suppressRef = useRef(false);
+  const trackNear = useNearViewport(trackRef);
 
   const wrapScroll = useCallback(() => {
     const track = trackRef.current;
@@ -178,6 +180,7 @@ export function FranchiseCarousel({
               seed={baseSeed + index}
               intensity="soft"
               className="dv-saga-art"
+              deferImage={!trackNear}
             />
             <span className="dv-saga-grad" aria-hidden="true" />
             {item.year ? (

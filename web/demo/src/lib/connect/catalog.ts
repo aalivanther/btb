@@ -1,3 +1,4 @@
+import "server-only";
 import { cache } from "react";
 import { fromJson } from "@bufbuild/protobuf";
 import { GameSchema } from "@/gen/btb/games/v1/games_pb";

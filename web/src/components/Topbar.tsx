@@ -188,7 +188,7 @@ function DesktopBar({ genres, today, user, wishlistCount, onOpenProfile, onOpenA
 
   return (
     <header className="tlx-topbar font-ui">
-      <Link href="/" className="tlx-brand" aria-label={`${ui.brand.full} — ${ui.brand.tagline}`}>
+      <Link href="/" prefetch={false} className="tlx-brand" aria-label={`${ui.brand.full} — ${ui.brand.tagline}`}>
         <span className="tlx-brand-name font-display">
           {ui.brand.prefix}
           <span className="text-gold"> {ui.brand.highlight}</span>
@@ -305,7 +305,7 @@ function MobileBar({
 
   return (
     <header className="tlx-topbar tlx-topbar-mobile font-ui">
-      <Link href="/" className="tlx-brand tlx-brand-compact" aria-label={ui.brand.full}>
+      <Link href="/" prefetch={false} className="tlx-brand tlx-brand-compact" aria-label={ui.brand.full}>
         <span className="tlx-brand-name font-display">{ui.brand.full}</span>
       </Link>
 
@@ -450,6 +450,7 @@ function MobileDrawerDialog({
             </button>
             <Link
               href="/perfil"
+              prefetch={false}
               className="tlx-drawer-action font-label"
               onClick={onClose}
             >

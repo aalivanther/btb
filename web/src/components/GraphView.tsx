@@ -5,7 +5,7 @@ import { useCallback, useMemo, useRef, useState } from "react";
 
 import type { NodeObject, LinkObject } from "react-force-graph-2d";
 
-import type { Game } from "@/lib/connect/catalog";
+import type { ProfileGame } from "@/lib/profile-catalog";
 import {
   buildConnectionIndex,
   buildGraphData,
@@ -17,6 +17,7 @@ import {
 import { LANE_META, laneKeyFromEnum } from "@/lib/timeline";
 import { CardTrailerPreview } from "@/components/CardTrailerPreview";
 import { ui } from "@/lib/i18n";
+import { useNearViewport } from "@/lib/use-near-viewport";
 
 const ForceGraph2D = dynamic(() => import("react-force-graph-2d"), { ssr: false });
 
@@ -38,12 +39,26 @@ type RFLink = LinkObject & Pick<GraphLink, "weight" | "reason">;
 type FgHandle = { centerAt: (x?: number, y?: number, ms?: number) => void; zoom: (z: number, ms: number) => void };
 
 type GraphViewProps = {
-  catalog: Game[];
-  focusGames: Game[];
+  catalog: ProfileGame[];
+  focusGames: ProfileGame[];
   onOpen: (id: string) => void;
 };
 
-export function GraphView({ catalog, focusGames, onOpen }: GraphViewProps) {
+// El grafo (force-graph y el cálculo de conexiones sobre todo el catálogo) se monta cuando la
+// sección queda a menos de 1000px de la vista, para que no compita con la carga de la página.
+// Hasta entonces se pinta el mismo lienzo vacío con el que arranca GraphCanvas.
+const GRAPH_MOUNT_MARGIN = "1000px";
+
+export function GraphView(props: GraphViewProps) {
+  const placeholderRef = useRef<HTMLDivElement | null>(null);
+  const near = useNearViewport(placeholderRef, GRAPH_MOUNT_MARGIN);
+  if (!near) {
+    return <div ref={placeholderRef} className="cg-canvas" />;
+  }
+  return <GraphCanvas {...props} />;
+}
+
+function GraphCanvas({ catalog, focusGames, onOpen }: GraphViewProps) {
   const index = useMemo(() => buildConnectionIndex(catalog), [catalog]);
   const gamesById = useMemo(() => new Map(catalog.map((game) => [game.id, game])), [catalog]);
 
@@ -52,7 +67,7 @@ export function GraphView({ catalog, focusGames, onOpen }: GraphViewProps) {
 
   const effectiveFocus = useMemo(() => {
     const ids = new Set(focusGames.map((game) => game.id));
-    const extra = extraFocusIds.map((id) => gamesById.get(id)).filter((game): game is Game => !!game);
+    const extra = extraFocusIds.map((id) => gamesById.get(id)).filter((game): game is ProfileGame => !!game);
     return [...focusGames, ...extra.filter((game) => !ids.has(game.id))];
   }, [focusGames, extraFocusIds, gamesById]);
 
@@ -97,7 +112,7 @@ export function GraphView({ catalog, focusGames, onOpen }: GraphViewProps) {
     () => (selectedGame ? relatedGames(selectedGame, catalog, index, { limit: 6 }) : []),
     [selectedGame, catalog, index],
   );
-  const platformLabel = (game: Game): string => {
+  const platformLabel = (game: ProfileGame): string => {
     const key = laneKeyFromEnum(game.platform);
     return key ? LANE_META[key].label : "";
   };

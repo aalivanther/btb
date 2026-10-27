@@ -1,4 +1,4 @@
-import type { Game } from "@/lib/connect/catalog";
+import type { ProfileGame } from "@/lib/profile-catalog";
 
 export type RelationType = "franchise" | "developer" | "publisher" | "genre";
 
@@ -9,7 +9,7 @@ export type ConnectionReason = {
 };
 
 export type Connection = {
-  game: Game;
+  game: ProfileGame;
   weight: number;
   reasons: ConnectionReason[];
 };
@@ -37,7 +37,7 @@ function creditNames(credits: { name: string }[] | undefined): string[] {
   return credits.map((credit) => normName(credit.name)).filter((name) => name.length > 0);
 }
 
-export function buildConnectionIndex(games: Game[]): ConnectionIndex {
+export function buildConnectionIndex(games: ProfileGame[]): ConnectionIndex {
   const genreFreq = new Map<string, number>();
   const developerFreq = new Map<string, number>();
   const publisherFreq = new Map<string, number>();
@@ -57,7 +57,7 @@ function idf(total: number, freq: number): number {
   return Math.max(0, Math.min(1, raw));
 }
 
-function sameFranchise(a: Game, b: Game): boolean {
+function sameFranchise(a: ProfileGame, b: ProfileGame): boolean {
   const an = a.franchise?.name ? normName(a.franchise.name) : "";
   const bn = b.franchise?.name ? normName(b.franchise.name) : "";
   if (an && bn && an === bn) return true;
@@ -67,8 +67,8 @@ function sameFranchise(a: Game, b: Game): boolean {
 }
 
 export function relatedGames(
-  target: Game,
-  games: Game[],
+  target: ProfileGame,
+  games: ProfileGame[],
   index: ConnectionIndex,
   { limit = 12, minWeight = 0.15 }: { limit?: number; minWeight?: number } = {},
 ): Connection[] {
@@ -148,15 +148,15 @@ function dominantReason(reasons: ConnectionReason[]): RelationType {
 }
 
 export function buildGraphData(
-  focusGames: Game[],
-  catalog: Game[],
+  focusGames: ProfileGame[],
+  catalog: ProfileGame[],
   index: ConnectionIndex,
   { neighborsPer = 6, minWeight = 0.2 }: { neighborsPer?: number; minWeight?: number } = {},
 ): GraphData {
   const nodes = new Map<string, GraphNode>();
   const links = new Map<string, GraphLink>();
 
-  const addNode = (game: Game, focus: boolean) => {
+  const addNode = (game: ProfileGame, focus: boolean) => {
     const existing = nodes.get(game.id);
     if (existing) {
       if (focus) existing.focus = true;

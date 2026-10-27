@@ -3,6 +3,14 @@ import type { JSX } from "react";
 const GRAIN_NOISE_SVG_DATA_URI =
   "url(\"data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E\")";
 
+// Marca <html> con "is-scrolling" mientras hay desplazamiento (de la ventana o de cualquier
+// carril, por eso escucha en captura) y la quita 200 ms después del último evento.
+const SCROLL_FLAG_SCRIPT =
+  "(function(){var h=document.documentElement,t=0,on=false;function f(){if(!on){on=true;" +
+  "h.classList.add('is-scrolling');}clearTimeout(t);t=setTimeout(function(){on=false;" +
+  "h.classList.remove('is-scrolling');},200);}['scroll','wheel','touchmove'].forEach(" +
+  "function(e){window.addEventListener(e,f,{passive:true,capture:true});});})();";
+
 export default function Background(): JSX.Element {
   return (
     <>
@@ -102,6 +110,12 @@ export default function Background(): JSX.Element {
           );
         }
 
+        /* Mientras la página se desplaza, la deriva se pausa: así el desenfoque de 80px no se
+           recalcula en cada cuadro del scroll. Al soltar, sigue desde donde iba. */
+        html.is-scrolling .organic-background .blob {
+          animation-play-state: paused;
+        }
+
         /* Accesibilidad: si la persona pidió menos movimiento, congelamos los
            blobs (sin animación). El fondo conserva su color y composición. */
         @media (prefers-reduced-motion: reduce) {
@@ -110,6 +124,8 @@ export default function Background(): JSX.Element {
           }
         }
       `}</style>
+
+      <script dangerouslySetInnerHTML={{ __html: SCROLL_FLAG_SCRIPT }} />
 
       <div className="organic-background" aria-hidden="true">
         <div className="blob-field">

@@ -48,6 +48,7 @@ import {
   buildWhereRows,
   buySearchUrl,
   formatReleaseDate,
+  igdbThumbUrl,
   initials,
   seedFromId,
 } from "@/components/detail/helpers";
@@ -55,8 +56,9 @@ import { deriveRarity, deriveRarityFromHypes } from "@/lib/rarity";
 import { formatMxnApprox } from "@/lib/currency";
 import { LANE_META, isUpcoming, laneKeyFromEnum, type Connection, type ConnectionReason, type TodayMarker } from "@/lib/timeline";
 import { useModalA11y } from "@/lib/use-modal-a11y";
+import { useNearViewport } from "@/lib/use-near-viewport";
 import { ui } from "@/lib/i18n";
-import { type Game } from "@/lib/connect/catalog";
+import type { Game } from "@/lib/connect/catalog";
 import type { Credit, Image as CatalogImage } from "@/gen/btb/games/v1/games_pb";
 import type { Deal } from "@/gen/btb/games/v1/deals_pb";
 
@@ -158,6 +160,11 @@ export function ReleaseDetail({
 
   const baseSeed = seedFromId(release.id);
 
+  const galleryRef = useRef<HTMLDivElement | null>(null);
+  const galleryNear = useNearViewport(galleryRef);
+  const relatedRef = useRef<HTMLDivElement | null>(null);
+  const relatedNear = useNearViewport(relatedRef);
+
   const criticScore = release.ratings?.critic ?? 0;
   const tier =
     criticScore > 0 ? deriveRarity(criticScore) : deriveRarityFromHypes(release.hypes ?? 0);
@@ -250,12 +257,13 @@ export function ReleaseDetail({
 
         <DetailSection label={ui.detail.galleryLabel}>
           {release.images.length > 0 ? (
-            <div className="dv-gal">
+            <div ref={galleryRef} className="dv-gal">
               {release.images.map((image, index) => (
                 <GalleryItem
                   key={`${image.label}-${index}`}
                   image={image}
                   seed={baseSeed + SEED_OFFSET_GALLERY + index}
+                  deferImage={!galleryNear}
                   onOpen={() => setLightbox(image)}
                 />
               ))}
@@ -406,7 +414,7 @@ export function ReleaseDetail({
 
         {related.length > 0 ? (
           <DetailSection label={ui.detail.connectionsLabel}>
-            <div className="dv-conn">
+            <div ref={relatedRef} className="dv-conn">
               {related.map((conn) => {
                 const connCritic = conn.game.ratings?.critic ?? 0;
                 const connTier =
@@ -423,10 +431,11 @@ export function ReleaseDetail({
                   >
                     <RarityFrame tier={connTier} className="dv-conn-frame">
                       <HalftoneImage
-                        url={conn.game.heroImageUrl}
+                        url={igdbThumbUrl(conn.game.heroImageUrl)}
                         seed={seedFromId(conn.game.id)}
                         intensity="soft"
                         className="dv-conn-art"
+                        deferImage={!relatedNear}
                       />
                       <span className="dv-conn-grad" aria-hidden="true" />
                       <Badge tone="ink" className="dv-conn-reason">
@@ -560,10 +569,11 @@ function DetailSection({ label, children, last = false }: DetailSectionProps) {
 type GalleryItemProps = {
   image: CatalogImage;
   seed: number;
+  deferImage: boolean;
   onOpen: () => void;
 };
 
-function GalleryItem({ image, seed, onOpen }: GalleryItemProps) {
+function GalleryItem({ image, seed, deferImage, onOpen }: GalleryItemProps) {
   return (
     <button
       type="button"
@@ -572,7 +582,13 @@ function GalleryItem({ image, seed, onOpen }: GalleryItemProps) {
       className="dv-gal-item"
     >
       <span className="dv-gal-frame">
-        <HalftoneImage url={image.url} seed={seed} intensity="soft" className="dv-gal-art" />
+        <HalftoneImage
+          url={igdbThumbUrl(image.url)}
+          seed={seed}
+          intensity="soft"
+          className="dv-gal-art"
+          deferImage={deferImage}
+        />
         <span aria-hidden="true" className="dv-gal-zoom">
           ⤢
         </span>

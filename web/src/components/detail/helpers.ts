@@ -1,6 +1,7 @@
 import { ui } from "@/lib/i18n";
 import type { Tier } from "@/lib/rarity";
-import { GameKind, type Game } from "@/lib/connect/catalog";
+import type { Game } from "@/lib/connect/catalog";
+import { GameKind } from "@/gen/btb/games/v1/games_pb";
 import type { PowTone } from "@/components/comic/kit";
 
 export const TIER_LABELS: Record<Tier, string> = {
@@ -45,6 +46,18 @@ export function seedFromId(id: string): number {
     sum += id.charCodeAt(index);
   }
   return sum;
+}
+
+const IGDB_1080P = "https://images.igdb.com/igdb/image/upload/t_1080p/";
+const IGDB_THUMB = "https://images.igdb.com/igdb/image/upload/t_720p/";
+
+// igdbThumbUrl cambia una captura t_1080p de IGDB por t_720p para miniaturas de ~134×88 px.
+// Las dos variantes encajan la imagen completa sin recortar (las t_screenshot_* y t_logo_med_2x
+// recortan a 16:9), así que el encuadre no cambia, y 720p sigue reduciéndose incluso en pantallas
+// 3x y con capturas muy panorámicas; variantes más chicas (t_cover_big_2x) ya se ven más suaves
+// ahí. El visor a pantalla completa sigue usando la URL original.
+export function igdbThumbUrl(url: string): string {
+  return url.startsWith(IGDB_1080P) ? IGDB_THUMB + url.slice(IGDB_1080P.length) : url;
 }
 
 export function formatReleaseDate(isoDate: string): string {
